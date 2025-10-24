@@ -19,10 +19,12 @@ model User {
 }
 
 model Feedback {
-  id         Int      @id @default(autoincrement())
-  comment    String
-  createdAt  DateTime @default(now())
-  likesCount Int      @default(0)
+  id            Int      @id @default(autoincrement())
+  comment       String
+  createdAt     DateTime @default(now())
+  likesCount    Int      @default(0)
+  feedbackTitle String   @default("Sem título")
+  userRating    Int      @default(0)
 
   // Relação com User
   userId Int
