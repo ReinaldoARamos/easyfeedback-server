@@ -1,10 +1,8 @@
 import { Router } from "express";
 import { feedbackRoutes } from "./feedbackRoute";
-
-//import { userRoutes } from "./user/route";
+import { userFeedbackRoutes } from "./userFeedbackRoute"; 
 
 export const routes = Router();
 
-// Monta cada sub-rota com prefixos diferentes
-//routes.use("/users", userRoutes);
 routes.use("/feedback", feedbackRoutes);
+routes.use("/user-feedback", userFeedbackRoutes); 
