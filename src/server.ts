@@ -5,7 +5,7 @@ import { routes } from "./routes"; // importa o index.ts da pasta routes automat
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:3001"
+  origin: "http://localhost:3000"
 }));
 
 app.use(express.json({ limit: "10mb" }));
