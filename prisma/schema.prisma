@@ -25,6 +25,7 @@ model Feedback {
   likesCount    Int      @default(0)
   feedbackTitle String   @default("Sem título")
   userRating    Int      @default(0)
+  isLiked       Boolean  @default(false)
 
   // Relação com User
   userId Int

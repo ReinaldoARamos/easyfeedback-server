@@ -20,6 +20,7 @@ feedbackLikeCounterUpdate.patch("/", async (req, res) => {
       where: { id: Number(id) },
       data: {
         likesCount: feedback.likesCount + 1,
+          isLiked: true
       },
     });
 

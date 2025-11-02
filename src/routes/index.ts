@@ -4,6 +4,7 @@ import { userFeedbackRoutes } from "./userFeedbackRoute";
 import { feedbackPostRoute } from "./feedbackPostRoute";
 import { feedbackLikeCounterUpdate } from "./feedbacklike";
 import { feedbackLikeRemoveCounterUpdate } from "./feedbackRemoveLike";
+import { feedbackTopFive } from "./feedbackTopFive";
 
 export const routes = Router();
 
@@ -12,3 +13,4 @@ routes.use("/user-feedback", userFeedbackRoutes);
 routes.use("/feedbackpost", feedbackPostRoute); 
 routes.use("/feedbackLikeCounter", feedbackLikeCounterUpdate); 
 routes.use("/feedbackRemoveLikeCounter", feedbackLikeRemoveCounterUpdate); 
+routes.use("/feedbackTopFive", feedbackTopFive); 

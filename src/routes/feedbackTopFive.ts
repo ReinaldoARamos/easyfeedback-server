@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { prisma } from "../prisma";
 
-export const feedbackRoutes = Router();
+export const feedbackTopFive = Router();
 
-feedbackRoutes.get("/", async (req, res) => {
+feedbackTopFive.get("/", async (req, res) => {
   try {
     const feedbacks = await prisma.feedback.findMany({
-      take: 10,
-      orderBy: { createdAt: "desc" },
+      take: 5,
+      orderBy: { likesCount: "desc" },
       include: {
         user: { select: { photo: true, name: true } },
       },
