@@ -7,15 +7,15 @@ feedbackDelete.delete("/", async (req, res) => {
   const { feedbackId } = req.query;
 
   try {
-    const feedbacks = await prisma.feedback.delete({
+    await prisma.feedback.delete({
       where: {
         id: Number(feedbackId),
       },
     });
 
-    return res.status(200);
+    return res.status(200).json({ message: "Feedback deletado com sucesso" });
   } catch (error) {
-    console.error("erro ao buscar feedbacks");
-    return res.status(500).json({ error: "erro ao buscar feedback" });
+    console.error("Erro ao deletar feedback:", error);
+    return res.status(500).json({ error: "Erro ao deletar feedback" });
   }
 });
