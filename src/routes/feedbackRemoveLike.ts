@@ -3,9 +3,9 @@ import { prisma } from "../prisma";
 
 export const feedbackLikeRemoveCounterUpdate = Router();
 
-feedbackLikeRemoveCounterUpdate.patch("/", async (req, res) => {
+feedbackLikeRemoveCounterUpdate.patch("/:id", async (req, res) => {
   try {
-    const { id } = req.query;
+    const { id } = req.params;
 
     const feedback = await prisma.feedback.findUnique({
       where: { id: Number(id) },
