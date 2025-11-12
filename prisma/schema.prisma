@@ -16,6 +16,9 @@ model User {
 
   // Relação com Feedback
   feedbacks Feedback[]
+  accounts  Account[]
+
+  sessions Session[]
 }
 
 model Feedback {
@@ -30,4 +33,30 @@ model Feedback {
   // Relação com User
   userId Int
   user   User @relation(fields: [userId], references: [id])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            Int
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id])
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       Int
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id])
 }

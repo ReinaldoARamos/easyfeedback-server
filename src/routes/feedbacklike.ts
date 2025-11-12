@@ -1,6 +1,5 @@
 import { Router } from "express";
-import { prisma } from "../prisma";
-
+import prisma from "../prisma";
 export const feedbackLikeCounterUpdate = Router();
 
 feedbackLikeCounterUpdate.patch("/", async (req, res) => {

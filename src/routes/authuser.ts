@@ -1,19 +1,20 @@
 import { Router } from "express";
 import prisma from "../prisma";
 
-export const feedbackPostRoute = Router();
+export const userCreateRoute = Router();
 
-feedbackPostRoute.post("/", async (req, res) => {
+userCreateRoute.post("/", async (req, res) => {
   try {
-    const { comment, title, userRating, userId } = req.body;
+    const { email, name, createdAt, id,photo } = req.body;
 
   
-    const feedbacks = await prisma.feedback.create({
+    const feedbacks = await prisma.user.create({
       data: {
-        comment,
-        feedbackTitle: title,
-        userRating,
-        userId,
+       email,
+       name,
+       createdAt,
+      id,
+      photo
       },
     });
     return res.status(200).json(feedbacks);
