@@ -7,6 +7,7 @@
     import { feedbackTopFive } from "./feedbackTopFive";
     import { feedbackDelete } from "./feedbackDelete";
     import { feedbackEditFeedbackRoute } from "./feedbackEditFeedback";
+import { userCreateRoute } from "./authuser";
 
     export const routes = Router();
 
@@ -18,3 +19,4 @@
     routes.use("/feedbackTopFive", feedbackTopFive);
     routes.use("/feedbackDelete", feedbackDelete);
     routes.use("/feedbackEditFeedback", feedbackEditFeedbackRoute);
+    routes.use("/feedbackCreateUser", userCreateRoute);
