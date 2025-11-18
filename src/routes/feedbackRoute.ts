@@ -12,7 +12,7 @@ feedbackRoutes.get("/", async (req, res) => {
       take: perpage, //pega apenas o tanto de itens que setarmos por pagina
       orderBy: { createdAt: "desc" },
       include: {
-        user: { select: { photo: true, name: true } },
+        user: { select: { photo: true, name: true, id:  true } },
       },
     });
     const totalCount = await prisma.feedback.count(); //contador de total de paginas
